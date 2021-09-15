@@ -25,7 +25,9 @@ $bg-purple: #8f4a81;
 }
 
 main,
-.product-slides {
+.product-slides,
+.header-menu,
+.header-pre {
   background-color: $bg-grey;
 }
 
@@ -200,7 +202,8 @@ main,
 /* font colours */
 
 h1,
-.section-title {
+.section-title,
+.desktop-menu a {
   color: $font-bg-navy;
 }
 
@@ -242,7 +245,8 @@ input::placeholder {
 .compare-price-text,
 .section-title,
 .sizes li,
-.other-stores span {
+.other-stores span,
+.desktop-menu a {
   font-size: 1.3rem;
 }
 
@@ -282,16 +286,18 @@ input::placeholder,
 h1,
 .price,
 .section-title,
-.button {
+.button,
+.desktop-menu a {
   font-weight: 700;
 }
 
 /* uppercase */
 .section-title,
 .breadcrumbs,
-.button {
-  text-transform: uppercase;
+.button,
+.desktop-menu a {
   letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 /* underline */

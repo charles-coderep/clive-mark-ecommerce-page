@@ -25,19 +25,30 @@ html {
 
   @include laptop {
     display: block;
+    height: 43px;
   }
 }
 
 .header-main {
   overflow-x: hidden;
+  display: flex;
+  justify-content: space-between;
   height: 57px;
   border-bottom: 1px solid $border-grey;
+  .diagonal-group {
+    height: 100%;
+  }
+
   .skew {
     transform-origin: bottom left;
     transform: skew(-25deg);
   }
   .unskew {
     transform: skew(25deg);
+  }
+  @include laptop {
+    height: 75px;
+    align-items: center;
   }
 }
 
@@ -46,6 +57,9 @@ html {
   width: 139px;
   img {
     width: 100%;
+  }
+  @include laptop {
+    width: 174px;
   }
 }
 
@@ -69,6 +83,29 @@ html {
 
 .header-search {
   width: 75px;
+  @include laptop {
+    width: 123px;
+  }
+}
+
+.header-menu,
+.header-cart {
+  @include laptop {
+    display: none;
+  }
+}
+
+.desktop-menu {
+  display: none;
+  @include laptop {
+    display: block;
+    li {
+      margin-right: 30px;
+      a {
+        text-decoration: none;
+      }
+    }
+  }
 }
 
 /*product page*/
@@ -91,7 +128,11 @@ html {
   position: relative;
   padding-top: 77px;
   @include laptop {
-    padding: 110px 100px 0px;
+    max-width: 1100px;
+    padding-top: 110px;
+    margin-left: auto;
+    margin-right: auto;
+    /*padding: 110px 100px 0px;*/
   }
 }
 

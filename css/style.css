@@ -22,7 +22,9 @@ body {
 }
 
 main,
-.product-slides {
+.product-slides,
+.header-menu,
+.header-pre {
   background-color: #f2f2f2;
 }
 
@@ -189,7 +191,8 @@ main,
 
 /* font colours */
 h1,
-.section-title {
+.section-title,
+.desktop-menu a {
   color: #264f9e;
 }
 
@@ -247,7 +250,8 @@ input::placeholder {
 .compare-price-text,
 .section-title,
 .sizes li,
-.other-stores span {
+.other-stores span,
+.desktop-menu a {
   font-size: 1.3rem;
 }
 
@@ -313,16 +317,18 @@ input::placeholder,
 h1,
 .price,
 .section-title,
-.button {
+.button,
+.desktop-menu a {
   font-weight: 700;
 }
 
 /* uppercase */
 .section-title,
 .breadcrumbs,
-.button {
-  text-transform: uppercase;
+.button,
+.desktop-menu a {
   letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 /* underline */
@@ -414,13 +420,23 @@ html {
 @media only screen and (min-width: 992px) {
   .header-pre {
     display: block;
+    height: 43px;
   }
 }
 
 .header-main {
   overflow-x: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   height: 57px;
   border-bottom: 1px solid #cacaca;
+}
+.header-main .diagonal-group {
+  height: 100%;
 }
 .header-main .skew {
   -webkit-transform-origin: bottom left;
@@ -432,6 +448,14 @@ html {
   -webkit-transform: skew(25deg);
           transform: skew(25deg);
 }
+@media only screen and (min-width: 992px) {
+  .header-main {
+    height: 75px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
 
 .header__logo {
   margin: 7px 0 0 20px;
@@ -439,6 +463,11 @@ html {
 }
 .header__logo img {
   width: 100%;
+}
+@media only screen and (min-width: 992px) {
+  .header__logo {
+    width: 174px;
+  }
 }
 
 .header-cart,
@@ -471,6 +500,33 @@ html {
 .header-search {
   width: 75px;
 }
+@media only screen and (min-width: 992px) {
+  .header-search {
+    width: 123px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .header-menu,
+.header-cart {
+    display: none;
+  }
+}
+
+.desktop-menu {
+  display: none;
+}
+@media only screen and (min-width: 992px) {
+  .desktop-menu {
+    display: block;
+  }
+  .desktop-menu li {
+    margin-right: 30px;
+  }
+  .desktop-menu li a {
+    text-decoration: none;
+  }
+}
 
 /*product page*/
 @media only screen and (min-width: 992px) {
@@ -493,7 +549,11 @@ html {
 }
 @media only screen and (min-width: 992px) {
   .page-container {
-    padding: 110px 100px 0px;
+    max-width: 1100px;
+    padding-top: 110px;
+    margin-left: auto;
+    margin-right: auto;
+    /*padding: 110px 100px 0px;*/
   }
 }
 
