@@ -1,4 +1,5 @@
-@import 'media-queries';
+/* Mobile font, icon, color declarations, or desktop stuff thats hidden in mobile */
+
 $bg-grey: #f2f2f2;
 $border-grey: #cacaca;
 $font-grey: #4d4d4d;
@@ -34,7 +35,8 @@ main,
 
 .product-selection,
 .product-thumbnail,
-.sizes li {
+.sizes li,
+.item-quantity {
   background-color: $font-bg-white;
 }
 
@@ -64,7 +66,9 @@ main,
 .chevron-right::before,
 .chevron-left::before,
 .ruler-horizontal::before,
-.bags-shopping::before {
+.bags-shopping::before,
+.plus::before,
+.minus::before {
   color: $font-cyan;
 }
 
@@ -143,6 +147,14 @@ main,
   content: '\f847';
 }
 
+.minus::before {
+  content: '\f068';
+}
+
+.plus::before {
+  content: '\f067';
+}
+
 /* icon weight + sizes */
 
 /*300*/
@@ -163,7 +175,9 @@ main,
 .chevron-right::before,
 .bag::before,
 .bars::before,
-.search::before {
+.search::before,
+.plus::before,
+.minus::before {
   font-weight: 400;
 }
 
@@ -175,11 +189,19 @@ main,
 
 /*icon sizes*/
 
-.chart::before,
+.plus::before,
+.minus::before {
+  font-size: 1.1em;
+}
+
 .check::before,
 .ruler-horizontal::before,
 .heart::before {
   font-size: 1.5em;
+}
+
+.chart::before {
+  font-size: 1.6em;
 }
 
 .credit-card::before,
@@ -216,7 +238,8 @@ h1,
   color: $font-black;
 }
 
-input::placeholder {
+input::placeholder,
+.product-price a {
   color: $font-grey;
 }
 
@@ -242,16 +265,17 @@ input::placeholder {
 }
 
 /* 1.3 rem */
-.payment-info span,
-.compare-price-text,
 .section-title,
 .sizes li,
 .other-stores span,
-.desktop-menu a {
+.desktop-menu a,
+.item-quantity-nr span {
   font-size: 1.3rem;
 }
 
-input::placeholder {
+input::placeholder,
+.product-price a,
+.payment-info span {
   font-size: 1.4rem;
 }
 
@@ -263,9 +287,6 @@ input::placeholder {
 /* 3.5 rem */
 h1 {
   font-size: 3.5rem;
-  @include laptop {
-    font-size: 3.3rem;
-  }
 }
 
 /* font-weight*/
@@ -281,7 +302,9 @@ h1 {
 .sizes li,
 .size-guide span,
 input::placeholder,
-.other-stores span {
+.other-stores span,
+.product-price a,
+.item-quantity-nr span {
   font-weight: 500;
 }
 
@@ -308,4 +331,8 @@ h1,
 .size-guide span {
   text-decoration: underline;
   text-transform: capitalize;
+}
+
+.product-price a {
+  text-decoration: none;
 }

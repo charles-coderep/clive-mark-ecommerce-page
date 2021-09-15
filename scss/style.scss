@@ -31,10 +31,12 @@ html {
 
 .header-main {
   overflow-x: hidden;
+  position: relative;
+  z-index: 10;
   display: flex;
   justify-content: space-between;
   height: 57px;
-  border-bottom: 1px solid $border-grey;
+  box-shadow: 1px 2px 2px 1px rgb(125 125 125 / 10%);
   .diagonal-group {
     height: 100%;
   }
@@ -49,6 +51,7 @@ html {
   @include laptop {
     height: 75px;
     align-items: center;
+    box-shadow: 1px 2px 3px 2px rgb(125 125 125 / 14%);
   }
 }
 
@@ -116,12 +119,25 @@ html {
   }
 }
 
-.compare-price-text {
-  margin-left: 0.5em;
+.product-price {
+  a {
+    margin-left: 0.5em;
+    @include laptop {
+      text-decoration: underline;
+    }
+  }
 }
 
 .product-title {
   margin-bottom: 1em;
+  @include laptop {
+    margin: 2.5em 0;
+  }
+  h1 {
+    @include laptop {
+      font-size: 3.3rem;
+    }
+  }
 }
 
 .page-container {
@@ -169,6 +185,9 @@ html {
   .icon.chart {
     margin-left: 1em;
   }
+  @include laptop {
+    margin-bottom: 1em;
+  }
 }
 
 .container {
@@ -209,6 +228,9 @@ html {
     position: absolute;
     top: 50%;
     transform: translateY(-100%);
+    &:hover::before {
+      color: $font-bg-navy;
+    }
   }
 
   @include laptop {
@@ -253,6 +275,7 @@ html {
 }
 
 .product-thumbnail {
+  border: 0px solid white;
   padding: 7px 25px 7px;
   box-shadow: 1px 1px 5px 3px rgb(125 125 125 / 8%),
     -1px -1px 5px 3px rgb(125 125 125 / 8%);
@@ -260,8 +283,10 @@ html {
 }
 
 .active-thumb {
-  border: 3px solid $bg-baby-blue;
+  border: 2px solid $bg-baby-blue;
   background-color: $bg-baby-blue;
+  box-shadow: none;
+  transition: all 0.1s;
 }
 
 .active-slide::before {
@@ -285,6 +310,9 @@ html {
 
 .payment-info span {
   margin-left: 1em;
+  @include laptop {
+    color: $font-grey;
+  }
 }
 
 .payment-info .icon.credit-card {
@@ -309,7 +337,6 @@ html {
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    margin-bottom: 12px;
     cursor: pointer;
   }
   .black {
@@ -410,6 +437,9 @@ html {
     border: 1px solid $border-grey;
     outline: none;
     padding: 13px;
+    @include laptop {
+      height: 38px;
+    }
   }
 }
 
@@ -418,16 +448,47 @@ html {
   width: 100%;
   height: 45px;
   margin-bottom: 15px;
+  gap: 9px;
   .favourite {
     position: relative;
     width: 45px;
-    margin-right: 12px;
+    @include laptop {
+      order: 3;
+    }
+  }
+  .item-quantity {
+    width: 102px;
+    border: 1px solid $border-grey;
+    &.desktop {
+      display: none;
+      @include laptop {
+        display: flex;
+      }
+    }
+    div {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  @include laptop {
+    margin-bottom: 40px;
+    height: 40px;
+    order: 2;
   }
 }
 
 .button {
   flex-grow: 1;
   text-decoration: none;
+  &:hover {
+    background-color: #5075bc;
+  }
+  @include laptop {
+    font-size: 1.4em;
+    font-weight: 500;
+  }
 }
 
 .heart::before {
@@ -443,5 +504,13 @@ html {
   margin-bottom: 50px;
   span {
     margin-left: 1em;
+    @include laptop {
+      color: $font-grey;
+    }
+  }
+  a {
+    @include laptop {
+      color: $font-grey;
+    }
   }
 }
