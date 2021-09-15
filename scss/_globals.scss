@@ -1,3 +1,4 @@
+@import 'media-queries';
 $bg-grey: #f2f2f2;
 $border-grey: #cacaca;
 $font-grey: #4d4d4d;
@@ -211,7 +212,7 @@ h1,
   color: $font-cyan;
 }
 
-.breadcrumbs {
+.breadcrumbs a {
   color: $font-black;
 }
 
@@ -235,7 +236,7 @@ input::placeholder {
 }
 
 /* 1.2 rem */
-.breadcrumbs,
+.breadcrumbs a,
 .size-guide span {
   font-size: 1.2rem;
 }
@@ -262,12 +263,15 @@ input::placeholder {
 /* 3.5 rem */
 h1 {
   font-size: 3.5rem;
+  @include laptop {
+    font-size: 3.3rem;
+  }
 }
 
 /* font-weight*/
 
 /* 400 */
-.breadcrumbs {
+.breadcrumbs a {
   font-weight: 400;
 }
 
@@ -293,7 +297,7 @@ h1,
 
 /* uppercase */
 .section-title,
-.breadcrumbs,
+.breadcrumbs a,
 .button,
 .desktop-menu a {
   letter-spacing: 0.1em;

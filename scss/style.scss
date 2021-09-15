@@ -128,19 +128,19 @@ html {
   position: relative;
   padding-top: 77px;
   @include laptop {
-    max-width: 1150px;
     padding-top: 110px;
-    margin-left: auto;
-    margin-right: auto;
   }
 }
 
 .breadcrumbs {
   display: none;
+  a {
+    text-decoration: none;
+  }
   @include laptop {
     display: block;
     position: absolute;
-    top: 50px;
+    top: -55px;
     left: 0px;
   }
 }
@@ -183,17 +183,18 @@ html {
 
 /* gallery */
 .product-gallery {
-  margin: 0px auto 26px auto;
+  position: relative;
+  margin-top: 0px;
+  margin-bottom: 26px;
   max-width: 577px;
   @include laptop {
-    margin: inherit;
   }
 }
 
 .product-details {
   width: 100%;
   @include laptop {
-    max-width: 465px;
+    max-width: 442px;
     min-width: 350px;
   }
 }
