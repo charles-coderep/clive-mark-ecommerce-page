@@ -549,11 +549,10 @@ html {
 }
 @media only screen and (min-width: 992px) {
   .page-container {
-    max-width: 1100px;
+    max-width: 1150px;
     padding-top: 110px;
     margin-left: auto;
     margin-right: auto;
-    /*padding: 110px 100px 0px;*/
   }
 }
 
@@ -565,7 +564,7 @@ html {
     display: block;
     position: absolute;
     top: 50px;
-    left: 100px;
+    left: 0px;
   }
 }
 
@@ -628,7 +627,7 @@ html {
 }
 @media only screen and (min-width: 992px) {
   .product-details {
-    max-width: 450px;
+    max-width: 465px;
     min-width: 350px;
   }
 }
@@ -737,60 +736,47 @@ html {
   margin-bottom: 40px;
 }
 
+.product-colour {
+  gap: 9px;
+}
 .product-colour li {
   position: relative;
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  margin-right: 9px;
   margin-bottom: 12px;
   cursor: pointer;
 }
-
-.product-colour li:last-of-type {
-  margin-right: 0px;
-}
-
 .product-colour .black {
   background-color: #000000;
 }
-
 .product-colour .navy {
   background-color: #1e3966;
 }
-
 .product-colour .brown {
   background-color: #4d4d4d;
 }
-
 .product-colour .pink {
   background-color: #8f4a81;
 }
-
 .product-colour .red {
   background-color: #aa202d;
 }
-
 .product-colour .yellow {
   background-color: #f1c44f;
 }
-
 .product-colour .blue {
   background-color: #264f9e;
 }
-
 .product-colour .grey {
   background-color: #b3b3b3;
 }
-
 .product-colour .orange {
   background-color: #f5ab6e;
 }
-
 .product-colour .green {
   background-color: #094900;
 }
-
 .product-colour .baby-blue {
   background-color: #99d2ef;
 }
@@ -810,13 +796,12 @@ html {
 
 .sizes {
   margin-bottom: 8px;
+  gap: 9px;
 }
-
 .sizes li {
   width: 47px;
   height: 38px;
   border: 1px solid #cacaca;
-  margin: 0 10px 10px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -837,10 +822,6 @@ html {
   color: #cacaca;
   font-weight: 400;
   background-image: linear-gradient(143deg, transparent 0%, transparent 48%, #cacaca 50%, transparent 52%, transparent 100%);
-}
-
-.sizes li:last-of-type {
-  margin-right: 0px;
 }
 
 .size-guide span {
