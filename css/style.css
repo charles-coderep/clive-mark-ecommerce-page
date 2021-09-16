@@ -293,7 +293,8 @@ input::placeholder,
 .sizes li,
 .other-stores span,
 .desktop-menu a,
-.item-quantity-nr span {
+.item-quantity-nr span,
+.payment-info span {
   font-size: 1.3rem;
 }
 
@@ -315,7 +316,6 @@ input::-ms-input-placeholder {
 
 input::placeholder,
 .product-price a,
-.payment-info span,
 .header-pre .group-right a {
   font-size: 1.4rem;
 }
@@ -873,13 +873,13 @@ html {
   padding: 17px 15px 10px 15px;
   margin-bottom: 40px;
 }
-
 .payment-info span {
   margin-left: 1em;
 }
 @media only screen and (min-width: 992px) {
   .payment-info span {
     color: #4d4d4d;
+    font-size: 1.4rem;
   }
 }
 

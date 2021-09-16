@@ -359,12 +359,12 @@ html {
 .payment-info {
   padding: 17px 15px 10px 15px;
   margin-bottom: 40px;
-}
-
-.payment-info span {
-  margin-left: 1em;
-  @include laptop {
-    color: $font-grey;
+  span {
+    margin-left: 1em;
+    @include laptop {
+      color: $font-grey;
+      font-size: 1.4rem;
+    }
   }
 }
 
