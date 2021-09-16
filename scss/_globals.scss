@@ -56,7 +56,8 @@ main,
 
 .bag::before,
 .bars::before,
-.heart::before {
+.heart::before,
+.header-pre .group-right .icon::before {
   color: $font-bg-navy;
 }
 
@@ -155,6 +156,21 @@ main,
   content: '\f067';
 }
 
+.map-marker-alt::before {
+  content: '\f3c5';
+}
+
+.calendar::before {
+  content: '\f133';
+}
+
+.phone-alt::before {
+  content: '\f879';
+}
+
+.user-circle::before {
+  content: '\f2bd';
+}
 /* icon weight + sizes */
 
 /*300*/
@@ -177,7 +193,8 @@ main,
 .bars::before,
 .search::before,
 .plus::before,
-.minus::before {
+.minus::before,
+.header-pre .group-right .icon::before {
   font-weight: 400;
 }
 
@@ -194,6 +211,7 @@ main,
   font-size: 1.1em;
 }
 
+.header-pre .group-right .icon::before,
 .check::before,
 .ruler-horizontal::before,
 .heart::before {
@@ -226,7 +244,8 @@ main,
 
 h1,
 .section-title,
-.desktop-menu a {
+.desktop-menu a,
+.header-pre .group-right a {
   color: $font-bg-navy;
 }
 
@@ -253,6 +272,7 @@ input::placeholder,
 }
 
 /* font size */
+
 /* 1.1 rem */
 .button {
   font-size: 1.1rem;
@@ -275,7 +295,8 @@ input::placeholder,
 
 input::placeholder,
 .product-price a,
-.payment-info span {
+.payment-info span,
+.header-pre .group-right a {
   font-size: 1.4rem;
 }
 
@@ -314,7 +335,8 @@ h1,
 .price,
 .section-title,
 .button,
-.desktop-menu a {
+.desktop-menu a,
+.header-pre .group-right a {
   font-weight: 700;
 }
 
@@ -333,6 +355,7 @@ h1,
   text-transform: capitalize;
 }
 
-.product-price a {
+.product-price a,
+.header-pre .group-right a {
   text-decoration: none;
 }

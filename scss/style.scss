@@ -27,16 +27,30 @@ html {
     display: block;
     height: 43px;
   }
+
+  .group-right {
+    grid-gap: 22px;
+    a {
+      margin-left: 10px;
+    }
+  }
+}
+
+.pre-header-container {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .header-main {
-  overflow-x: hidden;
+  height: 57px;
   position: relative;
   z-index: 10;
-  display: flex;
-  justify-content: space-between;
-  height: 57px;
   box-shadow: 1px 2px 2px 1px rgb(125 125 125 / 10%);
+
   .diagonal-group {
     height: 100%;
   }
@@ -50,9 +64,38 @@ html {
   }
   @include laptop {
     height: 75px;
-    align-items: center;
     box-shadow: 1px 2px 3px 2px rgb(125 125 125 / 14%);
+    width: 100%;
+    display: flex;
+    align-items: center;
   }
+
+  .empty-block1 {
+    display: none;
+    @include laptop {
+      display: flex;
+      flex-grow: 1;
+    }
+  }
+
+  .empty-block2 {
+    display: none;
+    @include laptop {
+      display: flex;
+      flex-grow: 1;
+      background-color: $font-bg-navy;
+      height: 100%;
+    }
+  }
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1300px;
+  height: 100%;
+  overflow-x: hidden;
+  flex-grow: 2;
 }
 
 .header__logo {
@@ -63,6 +106,7 @@ html {
   }
   @include laptop {
     width: 174px;
+    margin-left: 0px;
   }
 }
 
@@ -87,7 +131,7 @@ html {
 .header-search {
   width: 75px;
   @include laptop {
-    width: 123px;
+    width: 90px;
   }
 }
 
@@ -100,12 +144,20 @@ html {
 
 .desktop-menu {
   display: none;
+  ul {
+    margin-left: 5%;
+  }
   @include laptop {
-    display: block;
+    display: flex;
+    align-items: center;
+    width: 1003px;
     li {
       margin-right: 30px;
       a {
         text-decoration: none;
+        &:hover {
+          color: #5075bc;
+        }
       }
     }
   }
@@ -124,6 +176,7 @@ html {
     margin-left: 0.5em;
     @include laptop {
       text-decoration: underline;
+      font-size: 1.3em;
     }
   }
 }
@@ -195,7 +248,7 @@ html {
   margin-left: 38px;
   margin-right: 38px;
   @include laptop {
-    margin-left: 70px;
+    margin-left: 75px;
     margin-right: 0px;
   }
 }
@@ -324,6 +377,9 @@ html {
 .section-title span {
   text-transform: capitalize;
   letter-spacing: normal;
+  @include laptop {
+    color: $font-grey;
+  }
 }
 
 .colour-palette {
@@ -425,6 +481,10 @@ html {
 .size-guide span {
   margin-left: 10px;
   cursor: pointer;
+  @include laptop {
+    color: $font-grey;
+    font-size: 1.3em;
+  }
 }
 
 /* monogram */
@@ -452,6 +512,7 @@ html {
   .favourite {
     position: relative;
     width: 45px;
+    cursor: pointer;
     @include laptop {
       order: 3;
     }
@@ -477,6 +538,13 @@ html {
     height: 40px;
     order: 2;
   }
+
+  .heart::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 .button {
@@ -489,13 +557,6 @@ html {
     font-size: 1.4em;
     font-weight: 500;
   }
-}
-
-.heart::before {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 /* other stores */
