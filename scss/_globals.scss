@@ -176,6 +176,14 @@ main,
   content: '\f2bd';
 }
 
+.plus::before {
+  content: '\f067';
+}
+
+.minus::before {
+  content: '\f068';
+}
+
 /* icon weight + sizes */
 
 /*300*/

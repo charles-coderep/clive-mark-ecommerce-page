@@ -262,7 +262,8 @@ html {
 
 .container {
   width: 100%;
-  margin: 0px 40px;
+  margin-left: 40px;
+  margin-right: 40px;
   @include large {
     margin-left: 50px;
     margin-right: 0px;
@@ -598,24 +599,33 @@ html {
   width: 100%;
   margin-top: 70px;
   @include large {
-    height: 385px; /* since child blocks are absolute there is no height and without it out of flow of doc so need to use js to calc height according to tab content + 55px (tab title) */
+    height: 385px;
   }
   .description-block,
   .review-block {
     @include large {
       width: 100%;
       position: absolute;
-      height: 100%;
+      max-height: 0px;
       z-index: 0;
+    }
+    .icon::before {
+      content: '\f067';
+      color: $font-cyan;
     }
   }
 
   .active-block {
     @include large {
-      z-index: 50; /*change for active block*/
+      z-index: 50;
+      pointer-events: none;
     }
     .tab-content {
-      max-height: 100%;
+      width: 100%;
+      max-height: 330px;
+    }
+    .icon::before {
+      content: '\f068';
     }
   }
   .tab-title {
@@ -623,11 +633,14 @@ html {
     width: 100%;
     height: 55px;
     cursor: pointer;
-    justify-content: flex-start;
+    justify-content: space-between;
     @include large {
       position: absolute;
       width: 442px;
       justify-content: center;
+    }
+    @include x-large {
+      width: 577px;
     }
     &.tab-review {
       @include large {
@@ -639,8 +652,14 @@ html {
         left: 0px;
       }
     }
+    .icon {
+      @include large {
+        display: none;
+      }
+    }
   }
   .tab-content {
+    width: 100%;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-out;

@@ -170,6 +170,14 @@ main,
   content: "\f2bd";
 }
 
+.plus::before {
+  content: "\f067";
+}
+
+.minus::before {
+  content: "\f068";
+}
+
 /* icon weight + sizes */
 /*300*/
 .chart::before,
@@ -796,7 +804,8 @@ html {
 
 .container {
   width: 100%;
-  margin: 0px 40px;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 @media only screen and (min-width: 992px) {
   .container {
@@ -1172,7 +1181,6 @@ html {
 @media only screen and (min-width: 992px) {
   .description-review {
     height: 385px;
-    /* since child blocks are absolute there is no height and without it out of flow of doc so need to use js to calc height according to tab content + 55px (tab title) */
   }
 }
 @media only screen and (min-width: 992px) {
@@ -1180,27 +1188,36 @@ html {
 .description-review .review-block {
     width: 100%;
     position: absolute;
-    height: 100%;
+    max-height: 0px;
     z-index: 0;
   }
+}
+.description-review .description-block .icon::before,
+.description-review .review-block .icon::before {
+  content: "\f067";
+  color: #018ed3;
 }
 @media only screen and (min-width: 992px) {
   .description-review .active-block {
     z-index: 50;
-    /*change for active block*/
+    pointer-events: none;
   }
 }
 .description-review .active-block .tab-content {
-  max-height: 100%;
+  width: 100%;
+  max-height: 330px;
+}
+.description-review .active-block .icon::before {
+  content: "\f068";
 }
 .description-review .tab-title {
   padding: 0 3.5em;
   width: 100%;
   height: 55px;
   cursor: pointer;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 @media only screen and (min-width: 992px) {
   .description-review .tab-title {
@@ -1209,6 +1226,11 @@ html {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .description-review .tab-title {
+    width: 577px;
   }
 }
 @media only screen and (min-width: 992px) {
@@ -1221,7 +1243,13 @@ html {
     left: 0px;
   }
 }
+@media only screen and (min-width: 992px) {
+  .description-review .tab-title .icon {
+    display: none;
+  }
+}
 .description-review .tab-content {
+  width: 100%;
   max-height: 0;
   overflow: hidden;
   -webkit-transition: max-height 0.3s ease-out;

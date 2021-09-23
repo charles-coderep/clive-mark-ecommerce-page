@@ -4,7 +4,15 @@ let nextButton = document.querySelector('.chevron-right');
 let prevButton = document.querySelector('.chevron-left');
 let imageSelection = document.querySelector('.product-selection img');
 let currentIndex = 0;
-let nrImages = desktopThumb.length; // 
+let nrImages = desktopThumb.length;
+
+let tabTitles = document.querySelectorAll('.tab-title');
+
+/* product description tab is open by default */
+let descBlock = document.querySelector('.description-block');
+descBlock.classList.add('active-block');
+/*descBlock.children[1].style.maxHeight = descBlock.children[1].scrollHeight + 'px';*/
+
 
 desktopThumb[currentIndex].classList.add("active-thumb");
 mobilePosition[currentIndex].classList.add("active-slide");
@@ -50,5 +58,21 @@ desktopThumb.forEach((img, index) => {
     img.addEventListener('click', (e) => {
         currentIndex = index
         showImageSelection(currentIndex);
+    })
+});
+
+/* accordion mobile and desktop*/
+
+tabTitles.forEach(tabTitle => {
+    tabTitle.addEventListener("click", (e) => {
+
+        tabTitles.forEach(tabTitle => {
+            tabTitle.parentElement.classList.remove("active-block");
+            /* tabTitle.nextElementSibling.style.maxHeight = 0;*/
+        });
+
+        tabTitle.parentElement.classList.add("active-block");
+        /* tabTitle.nextElementSibling.style.maxHeight = tabTitle.nextElementSibling.scrollHeight + 'px';*/
+
     })
 });
