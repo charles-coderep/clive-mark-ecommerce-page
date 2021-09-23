@@ -23,13 +23,13 @@ html {
 .header-pre {
   display: none;
 
-  @include laptop {
+  @include large {
     display: block;
     height: 43px;
   }
 
   .group-right {
-    grid-gap: 22px;
+    gap: 22px;
     a {
       margin-left: 10px;
     }
@@ -38,11 +38,12 @@ html {
 
 .pre-header-container {
   height: 100%;
-  display: flex;
-  justify-content: space-between;
-  max-width: 1300px;
+  max-width: 960px;
   margin-left: auto;
   margin-right: auto;
+  @include x-large {
+    max-width: 1300px;
+  }
 }
 
 .header-main {
@@ -62,40 +63,35 @@ html {
   .unskew {
     transform: skew(25deg);
   }
-  @include laptop {
+  @include large {
     height: 75px;
     box-shadow: 1px 2px 3px 2px rgb(125 125 125 / 14%);
     width: 100%;
     display: flex;
-    align-items: center;
   }
 
-  .empty-block1 {
+  .empty-block {
     display: none;
-    @include laptop {
+    @include large {
       display: flex;
       flex-grow: 1;
     }
   }
 
-  .empty-block2 {
-    display: none;
-    @include laptop {
-      display: flex;
-      flex-grow: 1;
+  .empty-block.right {
+    @include large {
       background-color: $font-bg-navy;
-      height: 100%;
     }
   }
 }
 
-.header-container {
-  display: flex;
-  justify-content: space-between;
-  max-width: 1300px;
+.header-block {
+  flex-basis: 960px;
   height: 100%;
-  overflow-x: hidden;
-  flex-grow: 2;
+  overflow: clip;
+  @include x-large {
+    flex-basis: 1300px;
+  }
 }
 
 .header__logo {
@@ -104,9 +100,12 @@ html {
   img {
     width: 100%;
   }
-  @include laptop {
-    width: 174px;
+  @include large {
+    width: 150px;
     margin-left: 0px;
+  }
+  @include x-large {
+    width: 174px;
   }
 }
 
@@ -130,14 +129,17 @@ html {
 
 .header-search {
   width: 75px;
-  @include laptop {
+  @include large {
+    width: 60px;
+  }
+  @include x-large {
     width: 90px;
   }
 }
 
 .header-menu,
 .header-cart {
-  @include laptop {
+  @include large {
     display: none;
   }
 }
@@ -146,13 +148,18 @@ html {
   display: none;
   ul {
     margin-left: 5%;
+    @include large {
+      gap: 10px;
+    }
+    @include xx-large {
+      gap: 30px;
+    }
   }
-  @include laptop {
+  @include large {
     display: flex;
     align-items: center;
-    width: 1003px;
+    flex-grow: 1;
     li {
-      margin-right: 30px;
       a {
         text-decoration: none;
         &:hover {
@@ -166,15 +173,19 @@ html {
 /*product page*/
 
 .product {
-  @include laptop {
-    margin-bottom: 200px;
+  @include large {
+    padding-bottom: 200px;
+  }
+  justify-content: center;
+  @include large {
+    justify-content: inherit;
   }
 }
 
 .product-price {
   a {
     margin-left: 0.5em;
-    @include laptop {
+    @include large {
       text-decoration: underline;
       font-size: 1.3em;
     }
@@ -183,11 +194,11 @@ html {
 
 .product-title {
   margin-bottom: 1em;
-  @include laptop {
+  @include large {
     margin: 2.5em 0;
   }
   h1 {
-    @include laptop {
+    @include large {
       font-size: 3.3rem;
     }
   }
@@ -196,8 +207,14 @@ html {
 .page-container {
   position: relative;
   padding-top: 77px;
-  @include laptop {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 960px;
+  @include large {
     padding-top: 110px;
+  }
+  @include x-large {
+    max-width: 1200px;
   }
 }
 
@@ -206,7 +223,7 @@ html {
   a {
     text-decoration: none;
   }
-  @include laptop {
+  @include large {
     display: block;
     position: absolute;
     top: -55px;
@@ -218,7 +235,7 @@ html {
 .product-title.desktop,
 .product-price.desktop {
   display: none;
-  @include laptop {
+  @include large {
     display: block;
   }
 }
@@ -226,7 +243,7 @@ html {
 .product-title.mobile,
 .product-price.mobile {
   display: block;
-  @include laptop {
+  @include large {
     display: none;
   }
 }
@@ -238,18 +255,21 @@ html {
   .icon.chart {
     margin-left: 1em;
   }
-  @include laptop {
+  @include large {
     margin-bottom: 1em;
   }
 }
 
 .container {
   width: 100%;
-  margin-left: 38px;
-  margin-right: 38px;
-  @include laptop {
-    margin-left: 75px;
+  margin: 0px 40px;
+  @include large {
+    margin-left: 50px;
     margin-right: 0px;
+    max-width: 442px;
+  }
+  @include x-large {
+    margin-left: 75px;
   }
 }
 
@@ -258,21 +278,20 @@ html {
   position: relative;
   margin-top: 0px;
   margin-bottom: 26px;
-  max-width: 577px;
-  @include laptop {
+  max-width: 442px;
+  @include large {
+    margin-right: 0px;
+    margin-bottom: 0px;
+  }
+  @include x-large {
+    max-width: 577px;
   }
 }
 
 .product-details {
-  width: 100%;
-  @include laptop {
-    max-width: 442px;
-    min-width: 350px;
-  }
 }
 
 .product-selection {
-  min-height: 394px;
   padding: 22px 66px 50px;
   margin-bottom: 10px;
   position: relative;
@@ -286,11 +305,12 @@ html {
     }
   }
 
-  @include laptop {
+  @include large {
     box-shadow: 1px 1px 5px 3px rgb(125 125 125 / 8%),
       -1px -1px 5px 3px rgb(125 125 125 / 8%);
-    padding: 22px 100px 0px;
-    height: 545px;
+    padding: 22px 100px;
+  }
+  @include x-large {
   }
 }
 
@@ -311,19 +331,17 @@ html {
   .horizontal-rule::before {
     margin-left: 8px;
   }
-  @include laptop {
+  @include large {
     display: none;
   }
 }
 
 .product-slides {
   display: none;
-  @include laptop {
+  @include large {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
-
-    grid-template-rows: 129px;
+    gap: 10px;
   }
 }
 
@@ -351,8 +369,6 @@ html {
   width: 100%;
   margin: 0 auto;
   display: block;
-  @include landscape-tablet {
-  }
 }
 
 /* payment info*/
@@ -360,8 +376,8 @@ html {
   padding: 17px 15px 10px 15px;
   margin-bottom: 40px;
   span {
-    margin-left: 1em;
-    @include laptop {
+    margin-left: 0.6em;
+    @include large {
       color: $font-grey;
       font-size: 1.4rem;
     }
@@ -377,7 +393,7 @@ html {
 .section-title span {
   text-transform: capitalize;
   letter-spacing: normal;
-  @include laptop {
+  @include large {
     color: $font-grey;
   }
 }
@@ -481,7 +497,7 @@ html {
 .size-guide span {
   margin-left: 10px;
   cursor: pointer;
-  @include laptop {
+  @include large {
     color: $font-grey;
     font-size: 1.3em;
   }
@@ -497,7 +513,7 @@ html {
     border: 1px solid $border-grey;
     outline: none;
     padding: 13px;
-    @include laptop {
+    @include large {
       height: 38px;
     }
   }
@@ -513,7 +529,7 @@ html {
     position: relative;
     width: 45px;
     cursor: pointer;
-    @include laptop {
+    @include large {
       order: 3;
     }
   }
@@ -522,7 +538,7 @@ html {
     border: 1px solid $border-grey;
     &.desktop {
       display: none;
-      @include laptop {
+      @include large {
         display: flex;
       }
     }
@@ -533,7 +549,7 @@ html {
       justify-content: center;
     }
   }
-  @include laptop {
+  @include large {
     margin-bottom: 40px;
     height: 40px;
     order: 2;
@@ -553,7 +569,7 @@ html {
   &:hover {
     background-color: #5075bc;
   }
-  @include laptop {
+  @include large {
     font-size: 1.4em;
     font-weight: 500;
   }
@@ -565,13 +581,82 @@ html {
   margin-bottom: 50px;
   span {
     margin-left: 1em;
-    @include laptop {
+    @include large {
       color: $font-grey;
     }
   }
   a {
-    @include laptop {
+    @include large {
       color: $font-grey;
     }
+  }
+}
+
+/* description + reviews*/
+.description-review {
+  position: relative;
+  width: 100%;
+  margin-top: 70px;
+  @include large {
+    height: 385px; /* since child blocks are absolute there is no height and without it out of flow of doc so need to use js to calc height according to tab content + 55px (tab title) */
+  }
+  .description-block,
+  .review-block {
+    @include large {
+      width: 100%;
+      position: absolute;
+      height: 100%;
+      z-index: 0;
+    }
+  }
+
+  .active-block {
+    @include large {
+      z-index: 50; /*change for active block*/
+    }
+    .tab-content {
+      max-height: 100%;
+    }
+  }
+  .tab-title {
+    padding: 0 3.5em;
+    width: 100%;
+    height: 55px;
+    cursor: pointer;
+    justify-content: flex-start;
+    @include large {
+      position: absolute;
+      width: 442px;
+      justify-content: center;
+    }
+    &.tab-review {
+      @include large {
+        right: 0px;
+      }
+    }
+    &.tab-description {
+      @include large {
+        left: 0px;
+      }
+    }
+  }
+  .tab-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    @include large {
+      position: absolute;
+      top: 55px;
+      transition: none;
+    }
+    .tab-content-wrapper {
+      padding: 3em 3.5em;
+      @include large {
+        padding: 4em 5em 7.5em;
+      }
+    }
+  }
+  ul {
+    margin-top: 20px;
   }
 }

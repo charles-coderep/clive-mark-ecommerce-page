@@ -32,11 +32,15 @@ main,
 .product-selection,
 .product-thumbnail,
 .sizes li,
-.item-quantity {
+.item-quantity,
+.tab-title,
+.active-block .tab-title,
+.tab-content {
   background-color: #ffffff;
 }
 
-.payment-info {
+.payment-info,
+.tab-title {
   background-color: #d6ecf7;
 }
 
@@ -242,7 +246,8 @@ h1,
   color: #018ed3;
 }
 
-.breadcrumbs a {
+.breadcrumbs a,
+.tab-title span {
   color: #000000;
 }
 
@@ -263,7 +268,9 @@ input::-ms-input-placeholder {
 }
 
 input::placeholder,
-.product-price a {
+.product-price a,
+.tab-content p,
+.tab-content li {
   color: #4d4d4d;
 }
 
@@ -298,26 +305,30 @@ input::placeholder,
   font-size: 1.3rem;
 }
 
+/* 1.4 rem */
 input::-webkit-input-placeholder {
   font-size: 1.4rem;
 }
-
 input::-moz-placeholder {
   font-size: 1.4rem;
 }
-
 input:-ms-input-placeholder {
   font-size: 1.4rem;
 }
-
 input::-ms-input-placeholder {
   font-size: 1.4rem;
 }
-
 input::placeholder,
 .product-price a,
-.header-pre .group-right a {
+.header-pre .group-right a,
+.tab-content p,
+.tab-content li {
   font-size: 1.4rem;
+}
+
+/* 1.8rem */
+.tab-title span {
+  font-size: 1.8rem;
 }
 
 /* 2.8 rem */
@@ -356,7 +367,9 @@ input::-ms-input-placeholder {
 input::placeholder,
 .other-stores span,
 .product-price a,
-.item-quantity-nr span {
+.item-quantity-nr span,
+.tab-content p,
+.tab-content li {
   font-weight: 500;
 }
 
@@ -366,7 +379,8 @@ h1,
 .section-title,
 .button,
 .desktop-menu a,
-.header-pre .group-right a {
+.header-pre .group-right a,
+.tab-title span {
   font-weight: 700;
 }
 
@@ -388,6 +402,12 @@ h1,
 .product-price a,
 .header-pre .group-right a {
   text-decoration: none;
+}
+
+/* line height */
+.tab-content p,
+.tab-content li {
+  line-height: 1.7;
 }
 
 .flex {
@@ -449,6 +469,7 @@ h1,
           align-items: flex-end;
 }
 
+/*show desktop layout from here*/
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -477,7 +498,7 @@ html {
   }
 }
 .header-pre .group-right {
-  grid-gap: 22px;
+  gap: 22px;
 }
 .header-pre .group-right a {
   margin-left: 10px;
@@ -485,15 +506,14 @@ html {
 
 .pre-header-container {
   height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  max-width: 1300px;
+  max-width: 960px;
   margin-left: auto;
   margin-right: auto;
+}
+@media only screen and (min-width: 1200px) {
+  .pre-header-container {
+    max-width: 1300px;
+  }
 }
 
 .header-main {
@@ -525,16 +545,13 @@ html {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
   }
 }
-.header-main .empty-block1 {
+.header-main .empty-block {
   display: none;
 }
 @media only screen and (min-width: 992px) {
-  .header-main .empty-block1 {
+  .header-main .empty-block {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -543,35 +560,23 @@ html {
             flex-grow: 1;
   }
 }
-.header-main .empty-block2 {
-  display: none;
-}
 @media only screen and (min-width: 992px) {
-  .header-main .empty-block2 {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1;
+  .header-main .empty-block.right {
     background-color: #264f9e;
-    height: 100%;
   }
 }
 
-.header-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  max-width: 1300px;
+.header-block {
+  -ms-flex-preferred-size: 960px;
+      flex-basis: 960px;
   height: 100%;
-  overflow-x: hidden;
-  -webkit-box-flex: 2;
-      -ms-flex-positive: 2;
-          flex-grow: 2;
+  overflow: clip;
+}
+@media only screen and (min-width: 1200px) {
+  .header-block {
+    -ms-flex-preferred-size: 1300px;
+        flex-basis: 1300px;
+  }
 }
 
 .header__logo {
@@ -583,8 +588,13 @@ html {
 }
 @media only screen and (min-width: 992px) {
   .header__logo {
-    width: 174px;
+    width: 150px;
     margin-left: 0px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .header__logo {
+    width: 174px;
   }
 }
 
@@ -620,6 +630,11 @@ html {
 }
 @media only screen and (min-width: 992px) {
   .header-search {
+    width: 60px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .header-search {
     width: 90px;
   }
 }
@@ -638,6 +653,16 @@ html {
   margin-left: 5%;
 }
 @media only screen and (min-width: 992px) {
+  .desktop-menu ul {
+    gap: 10px;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .desktop-menu ul {
+    gap: 30px;
+  }
+}
+@media only screen and (min-width: 992px) {
   .desktop-menu {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -645,10 +670,9 @@ html {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    width: 1003px;
-  }
-  .desktop-menu li {
-    margin-right: 30px;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
   }
   .desktop-menu li a {
     text-decoration: none;
@@ -659,9 +683,21 @@ html {
 }
 
 /*product page*/
+.product {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
 @media only screen and (min-width: 992px) {
   .product {
-    margin-bottom: 200px;
+    padding-bottom: 200px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .product {
+    -webkit-box-pack: inherit;
+        -ms-flex-pack: inherit;
+            justify-content: inherit;
   }
 }
 
@@ -692,10 +728,18 @@ html {
 .page-container {
   position: relative;
   padding-top: 77px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 960px;
 }
 @media only screen and (min-width: 992px) {
   .page-container {
     padding-top: 110px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .page-container {
+    max-width: 1200px;
   }
 }
 
@@ -752,13 +796,18 @@ html {
 
 .container {
   width: 100%;
-  margin-left: 38px;
-  margin-right: 38px;
+  margin: 0px 40px;
 }
 @media only screen and (min-width: 992px) {
   .container {
-    margin-left: 75px;
+    margin-left: 50px;
     margin-right: 0px;
+    max-width: 442px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .container {
+    margin-left: 75px;
   }
 }
 
@@ -767,20 +816,21 @@ html {
   position: relative;
   margin-top: 0px;
   margin-bottom: 26px;
-  max-width: 577px;
-}
-.product-details {
-  width: 100%;
+  max-width: 442px;
 }
 @media only screen and (min-width: 992px) {
-  .product-details {
-    max-width: 442px;
-    min-width: 350px;
+  .product-gallery {
+    margin-right: 0px;
+    margin-bottom: 0px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .product-gallery {
+    max-width: 577px;
   }
 }
 
 .product-selection {
-  min-height: 394px;
   padding: 22px 66px 50px;
   margin-bottom: 10px;
   position: relative;
@@ -800,11 +850,9 @@ html {
   .product-selection {
     -webkit-box-shadow: 1px 1px 5px 3px rgba(125, 125, 125, 0.08), -1px -1px 5px 3px rgba(125, 125, 125, 0.08);
             box-shadow: 1px 1px 5px 3px rgba(125, 125, 125, 0.08), -1px -1px 5px 3px rgba(125, 125, 125, 0.08);
-    padding: 22px 100px 0px;
-    height: 545px;
+    padding: 22px 100px;
   }
 }
-
 .chevron-left {
   left: calc(0% + 35px);
 }
@@ -836,8 +884,7 @@ html {
   .product-slides {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
-    grid-template-rows: 129px;
+    gap: 10px;
   }
 }
 
@@ -868,13 +915,14 @@ html {
   margin: 0 auto;
   display: block;
 }
+
 /* payment info*/
 .payment-info {
   padding: 17px 15px 10px 15px;
   margin-bottom: 40px;
 }
 .payment-info span {
-  margin-left: 1em;
+  margin-left: 0.6em;
 }
 @media only screen and (min-width: 992px) {
   .payment-info span {
@@ -1113,4 +1161,88 @@ html {
   .other-stores a {
     color: #4d4d4d;
   }
+}
+
+/* description + reviews*/
+.description-review {
+  position: relative;
+  width: 100%;
+  margin-top: 70px;
+}
+@media only screen and (min-width: 992px) {
+  .description-review {
+    height: 385px;
+    /* since child blocks are absolute there is no height and without it out of flow of doc so need to use js to calc height according to tab content + 55px (tab title) */
+  }
+}
+@media only screen and (min-width: 992px) {
+  .description-review .description-block,
+.description-review .review-block {
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    z-index: 0;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .description-review .active-block {
+    z-index: 50;
+    /*change for active block*/
+  }
+}
+.description-review .active-block .tab-content {
+  max-height: 100%;
+}
+.description-review .tab-title {
+  padding: 0 3.5em;
+  width: 100%;
+  height: 55px;
+  cursor: pointer;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+@media only screen and (min-width: 992px) {
+  .description-review .tab-title {
+    position: absolute;
+    width: 442px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .description-review .tab-title.tab-review {
+    right: 0px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .description-review .tab-title.tab-description {
+    left: 0px;
+  }
+}
+.description-review .tab-content {
+  max-height: 0;
+  overflow: hidden;
+  -webkit-transition: max-height 0.3s ease-out;
+  transition: max-height 0.3s ease-out;
+}
+@media only screen and (min-width: 992px) {
+  .description-review .tab-content {
+    position: absolute;
+    top: 55px;
+    -webkit-transition: none;
+    transition: none;
+  }
+}
+.description-review .tab-content .tab-content-wrapper {
+  padding: 3em 3.5em;
+}
+@media only screen and (min-width: 992px) {
+  .description-review .tab-content .tab-content-wrapper {
+    padding: 4em 5em 7.5em;
+  }
+}
+.description-review ul {
+  margin-top: 20px;
 }

@@ -1,35 +1,35 @@
-$phone: 600px;
-$portrait-tablet: 600px;
-$landscape-tablet: 768px;
-$laptop: 992px;
-$desktop: 1200px;
+$small: 576px;
+$medium: 768px;
+$large: 992px; /*show desktop layout from here*/
+$x-large: 1200px;
+$xx-large: 1400px;
 
-@mixin phone {
-  @media only screen and (max-width: #{$phone}) {
+@mixin small {
+  @media only screen and (max-width: #{$small}) {
     @content;
   }
 }
 
-@mixin portrait-tablet {
-  @media only screen and (min-width: #{$portrait-tablet}) {
+@mixin medium {
+  @media only screen and (min-width: #{$medium}) {
     @content;
   }
 }
 
-@mixin landscape-tablet {
-  @media only screen and (min-width: #{$landscape-tablet}) {
+@mixin large {
+  @media only screen and (min-width: #{$large}) {
     @content;
   }
 }
 
-@mixin laptop {
-  @media only screen and (min-width: #{$laptop}) {
+@mixin x-large {
+  @media only screen and (min-width: #{$x-large}) {
     @content;
   }
 }
 
-@mixin desktop {
-  @media only screen and (min-width: #{$desktop}) {
+@mixin xx-large {
+  @media only screen and (min-width: #{$xx-large}) {
     @content;
   }
 }

@@ -36,11 +36,15 @@ main,
 .product-selection,
 .product-thumbnail,
 .sizes li,
-.item-quantity {
+.item-quantity,
+.tab-title,
+.active-block .tab-title,
+.tab-content {
   background-color: $font-bg-white;
 }
 
-.payment-info {
+.payment-info,
+.tab-title {
   background-color: $bg-baby-blue;
 }
 
@@ -171,6 +175,7 @@ main,
 .user-circle::before {
   content: '\f2bd';
 }
+
 /* icon weight + sizes */
 
 /*300*/
@@ -253,12 +258,15 @@ h1,
   color: $font-cyan;
 }
 
-.breadcrumbs a {
+.breadcrumbs a,
+.tab-title span {
   color: $font-black;
 }
 
 input::placeholder,
-.product-price a {
+.product-price a,
+.tab-content p,
+.tab-content li {
   color: $font-grey;
 }
 
@@ -294,10 +302,19 @@ input::placeholder,
   font-size: 1.3rem;
 }
 
+/* 1.4 rem */
 input::placeholder,
 .product-price a,
-.header-pre .group-right a {
+.header-pre .group-right a,
+.tab-content p,
+.tab-content li {
   font-size: 1.4rem;
+}
+
+/* 1.8rem */
+
+.tab-title span {
+  font-size: 1.8rem;
 }
 
 /* 2.8 rem */
@@ -325,7 +342,9 @@ h1 {
 input::placeholder,
 .other-stores span,
 .product-price a,
-.item-quantity-nr span {
+.item-quantity-nr span,
+.tab-content p,
+.tab-content li {
   font-weight: 500;
 }
 
@@ -336,7 +355,8 @@ h1,
 .section-title,
 .button,
 .desktop-menu a,
-.header-pre .group-right a {
+.header-pre .group-right a,
+.tab-title span {
   font-weight: 700;
 }
 
@@ -358,4 +378,10 @@ h1,
 .product-price a,
 .header-pre .group-right a {
   text-decoration: none;
+}
+
+/* line height */
+.tab-content p,
+.tab-content li {
+  line-height: 1.7;
 }
