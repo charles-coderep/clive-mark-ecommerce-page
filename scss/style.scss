@@ -70,18 +70,18 @@ html {
     display: flex;
   }
 
-  .empty-block {
-    display: none;
-    @include large {
-      display: flex;
-      flex-grow: 1;
-    }
-  }
-
   .empty-block.right {
     @include large {
       background-color: $font-bg-navy;
     }
+  }
+}
+
+.empty-block {
+  display: none;
+  @include large {
+    display: flex;
+    flex-grow: 1;
   }
 }
 
@@ -173,13 +173,13 @@ html {
 /*product page*/
 
 .product {
+  padding-top: 77px;
   @include large {
-    padding-bottom: 200px;
-  }
-  justify-content: center;
-  @include large {
+    padding-top: 110px;
+    padding-bottom: 190px;
     justify-content: inherit;
   }
+  justify-content: center;
 }
 
 .product-price {
@@ -206,13 +206,9 @@ html {
 
 .page-container {
   position: relative;
-  padding-top: 77px;
   margin-left: auto;
   margin-right: auto;
   max-width: 960px;
-  @include large {
-    padding-top: 110px;
-  }
   @include x-large {
     max-width: 1200px;
   }
@@ -580,6 +576,9 @@ html {
 
 .other-stores {
   margin-bottom: 50px;
+  @include large {
+    margin-bottom: 0px;
+  }
   span {
     margin-left: 1em;
     @include large {
@@ -597,9 +596,10 @@ html {
 .description-review {
   position: relative;
   width: 100%;
-  margin-top: 70px;
+  margin-top: 0px;
   @include large {
-    height: 385px;
+    height: 378px;
+    margin-top: 70px;
   }
   .description-block,
   .review-block {
@@ -672,10 +672,84 @@ html {
       padding: 3em 3.5em;
       @include large {
         padding: 4em 5em 7.5em;
+        max-height: inherit;
       }
     }
   }
-  ul {
+  ul:not(:first-of-type) {
     margin-top: 20px;
+  }
+}
+
+footer {
+  .section-title {
+    margin-bottom: 25px;
+  }
+  .footer-contact-us {
+    display: none;
+    @include large {
+      padding-top: 65px;
+      padding-right: 40px;
+      display: block;
+    }
+    ul {
+      column-count: 2;
+      display: block;
+      li {
+        line-height: 1.5;
+        margin-bottom: 16px;
+        &.email {
+          margin-top: 40px;
+        }
+      }
+    }
+  }
+  .our-providers,
+  .ways-to-pay {
+    display: none;
+    @include x-large {
+      display: block;
+    }
+  }
+  .footer-payment-links {
+    width: 100%;
+    flex-direction: column;
+    align-content: flex-start;
+    padding: 65px 40px 58px 40px;
+    @include large {
+      width: auto;
+      flex-direction: row;
+      justify-content: space-between;
+      align-content: inherit;
+      flex-grow: 1;
+    }
+    ul {
+      line-height: 2.6;
+    }
+    .footer-links {
+      margin-bottom: 25px;
+      @include large {
+        margin-bottom: 0px;
+      }
+    }
+  }
+  .footer-wrapper {
+    border-top: 2px solid white;
+  }
+  .footer-block {
+    flex-basis: 960px;
+    flex-wrap: nowrap;
+    @include x-large {
+      flex-basis: 1200px;
+    }
+  }
+  .empty-block.left {
+    background-color: $bg-light-baby-blue;
+  }
+  .empty-block.right {
+    background-color: $bg-baby-blue;
+  }
+  .footer-strip {
+    height: 50px;
   }
 }

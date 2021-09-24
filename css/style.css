@@ -39,8 +39,13 @@ main,
   background-color: #ffffff;
 }
 
+.footer-contact-us {
+  background-color: #e6f5fc;
+}
+
 .payment-info,
-.tab-title {
+.tab-title,
+.footer-payment-links {
   background-color: #d6ecf7;
 }
 
@@ -50,6 +55,10 @@ main,
 
 .active-size {
   background-color: #018ed5;
+}
+
+.footer-strip {
+  background-color: #8f4a81;
 }
 
 /* icon colours */
@@ -198,7 +207,8 @@ main,
 .search::before,
 .plus::before,
 .minus::before,
-.header-pre .group-right .icon::before {
+.header-pre .group-right .icon::before,
+.tab-title .icon {
   font-weight: 400;
 }
 
@@ -278,8 +288,14 @@ input::-ms-input-placeholder {
 input::placeholder,
 .product-price a,
 .tab-content p,
-.tab-content li {
+.tab-content li,
+.footer-contact-us li,
+.footer-payment-links li a {
   color: #4d4d4d;
+}
+
+.footer-contact-us li a {
+  color: #8f4a81;
 }
 
 .payment-info span,
@@ -289,6 +305,10 @@ input::placeholder,
 .other-stores span,
 .other-stores a {
   color: #1c4186;
+}
+
+.footer-strip span {
+  color: #ffffff;
 }
 
 /* font size */
@@ -330,7 +350,10 @@ input::placeholder,
 .product-price a,
 .header-pre .group-right a,
 .tab-content p,
-.tab-content li {
+.tab-content li,
+.footer-strip span,
+.footer-contact-us li,
+.footer-payment-links li a {
   font-size: 1.4rem;
 }
 
@@ -377,7 +400,9 @@ input::placeholder,
 .product-price a,
 .item-quantity-nr span,
 .tab-content p,
-.tab-content li {
+.tab-content li,
+.footer-contact-us li,
+.footer-payment-links li a {
   font-weight: 500;
 }
 
@@ -388,7 +413,8 @@ h1,
 .button,
 .desktop-menu a,
 .header-pre .group-right a,
-.tab-title span {
+.tab-title span,
+.footer-contact-us li a {
   font-weight: 700;
 }
 
@@ -408,7 +434,9 @@ h1,
 }
 
 .product-price a,
-.header-pre .group-right a {
+.header-pre .group-right a,
+.footer-contact-us li a,
+.footer-payment-links li a {
   text-decoration: none;
 }
 
@@ -555,22 +583,23 @@ html {
     display: flex;
   }
 }
-.header-main .empty-block {
+@media only screen and (min-width: 992px) {
+  .header-main .empty-block.right {
+    background-color: #264f9e;
+  }
+}
+
+.empty-block {
   display: none;
 }
 @media only screen and (min-width: 992px) {
-  .header-main .empty-block {
+  .empty-block {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-flex: 1;
         -ms-flex-positive: 1;
             flex-grow: 1;
-  }
-}
-@media only screen and (min-width: 992px) {
-  .header-main .empty-block.right {
-    background-color: #264f9e;
   }
 }
 
@@ -692,17 +721,15 @@ html {
 
 /*product page*/
 .product {
+  padding-top: 77px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
 @media only screen and (min-width: 992px) {
   .product {
-    padding-bottom: 200px;
-  }
-}
-@media only screen and (min-width: 992px) {
-  .product {
+    padding-top: 110px;
+    padding-bottom: 190px;
     -webkit-box-pack: inherit;
         -ms-flex-pack: inherit;
             justify-content: inherit;
@@ -735,15 +762,9 @@ html {
 
 .page-container {
   position: relative;
-  padding-top: 77px;
   margin-left: auto;
   margin-right: auto;
   max-width: 960px;
-}
-@media only screen and (min-width: 992px) {
-  .page-container {
-    padding-top: 110px;
-  }
 }
 @media only screen and (min-width: 1200px) {
   .page-container {
@@ -1158,6 +1179,11 @@ html {
 .other-stores {
   margin-bottom: 50px;
 }
+@media only screen and (min-width: 992px) {
+  .other-stores {
+    margin-bottom: 0px;
+  }
+}
 .other-stores span {
   margin-left: 1em;
 }
@@ -1176,11 +1202,12 @@ html {
 .description-review {
   position: relative;
   width: 100%;
-  margin-top: 70px;
+  margin-top: 0px;
 }
 @media only screen and (min-width: 992px) {
   .description-review {
-    height: 385px;
+    height: 378px;
+    margin-top: 70px;
   }
 }
 @media only screen and (min-width: 992px) {
@@ -1269,8 +1296,108 @@ html {
 @media only screen and (min-width: 992px) {
   .description-review .tab-content .tab-content-wrapper {
     padding: 4em 5em 7.5em;
+    max-height: inherit;
   }
 }
-.description-review ul {
+.description-review ul:not(:first-of-type) {
   margin-top: 20px;
+}
+
+footer .section-title {
+  margin-bottom: 25px;
+}
+footer .footer-contact-us {
+  display: none;
+}
+@media only screen and (min-width: 992px) {
+  footer .footer-contact-us {
+    padding-top: 65px;
+    padding-right: 40px;
+    display: block;
+  }
+}
+footer .footer-contact-us ul {
+  -webkit-column-count: 2;
+     -moz-column-count: 2;
+          column-count: 2;
+  display: block;
+}
+footer .footer-contact-us ul li {
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+footer .footer-contact-us ul li.email {
+  margin-top: 40px;
+}
+footer .our-providers,
+footer .ways-to-pay {
+  display: none;
+}
+@media only screen and (min-width: 1200px) {
+  footer .our-providers,
+footer .ways-to-pay {
+    display: block;
+  }
+}
+footer .footer-payment-links {
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+  padding: 65px 40px 58px 40px;
+}
+@media only screen and (min-width: 992px) {
+  footer .footer-payment-links {
+    width: auto;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-line-pack: inherit;
+        align-content: inherit;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+  }
+}
+footer .footer-payment-links ul {
+  line-height: 2.6;
+}
+footer .footer-payment-links .footer-links {
+  margin-bottom: 25px;
+}
+@media only screen and (min-width: 992px) {
+  footer .footer-payment-links .footer-links {
+    margin-bottom: 0px;
+  }
+}
+footer .footer-wrapper {
+  border-top: 2px solid white;
+}
+footer .footer-block {
+  -ms-flex-preferred-size: 960px;
+      flex-basis: 960px;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+@media only screen and (min-width: 1200px) {
+  footer .footer-block {
+    -ms-flex-preferred-size: 1200px;
+        flex-basis: 1200px;
+  }
+}
+footer .empty-block.left {
+  background-color: #e6f5fc;
+}
+footer .empty-block.right {
+  background-color: #d6ecf7;
+}
+footer .footer-strip {
+  height: 50px;
 }

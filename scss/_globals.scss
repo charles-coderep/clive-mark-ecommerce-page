@@ -12,12 +12,13 @@ $font-bg-white: #ffffff;
 $font-cyan: #018ed3;
 $bg-cyan: #018ed5;
 
+$bg-light-baby-blue: #e6f5fc;
 $bg-baby-blue: #d6ecf7;
 $bg-dark-baby-blue: #99d2ef;
 
 $font-black: #000000;
 
-$bg-purple: #8f4a81;
+$font-bg-purple: #8f4a81;
 
 /* block background colours */
 
@@ -43,8 +44,13 @@ main,
   background-color: $font-bg-white;
 }
 
+.footer-contact-us {
+  background-color: $bg-light-baby-blue;
+}
+
 .payment-info,
-.tab-title {
+.tab-title,
+.footer-payment-links {
   background-color: $bg-baby-blue;
 }
 
@@ -54,6 +60,10 @@ main,
 
 .active-size {
   background-color: $bg-cyan;
+}
+
+.footer-strip {
+  background-color: $font-bg-purple;
 }
 
 /* icon colours */
@@ -207,7 +217,8 @@ main,
 .search::before,
 .plus::before,
 .minus::before,
-.header-pre .group-right .icon::before {
+.header-pre .group-right .icon::before,
+.tab-title .icon {
   font-weight: 400;
 }
 
@@ -274,8 +285,14 @@ h1,
 input::placeholder,
 .product-price a,
 .tab-content p,
-.tab-content li {
+.tab-content li,
+.footer-contact-us li,
+.footer-payment-links li a {
   color: $font-grey;
+}
+
+.footer-contact-us li a {
+  color: $font-bg-purple;
 }
 
 .payment-info span,
@@ -287,6 +304,9 @@ input::placeholder,
   color: $font-dark-navy;
 }
 
+.footer-strip span {
+  color: $font-bg-white;
+}
 /* font size */
 
 /* 1.1 rem */
@@ -315,7 +335,10 @@ input::placeholder,
 .product-price a,
 .header-pre .group-right a,
 .tab-content p,
-.tab-content li {
+.tab-content li,
+.footer-strip span,
+.footer-contact-us li,
+.footer-payment-links li a {
   font-size: 1.4rem;
 }
 
@@ -352,7 +375,9 @@ input::placeholder,
 .product-price a,
 .item-quantity-nr span,
 .tab-content p,
-.tab-content li {
+.tab-content li,
+.footer-contact-us li,
+.footer-payment-links li a {
   font-weight: 500;
 }
 
@@ -364,7 +389,8 @@ h1,
 .button,
 .desktop-menu a,
 .header-pre .group-right a,
-.tab-title span {
+.tab-title span,
+.footer-contact-us li a {
   font-weight: 700;
 }
 
@@ -384,7 +410,9 @@ h1,
 }
 
 .product-price a,
-.header-pre .group-right a {
+.header-pre .group-right a,
+.footer-contact-us li a,
+.footer-payment-links li a {
   text-decoration: none;
 }
 
