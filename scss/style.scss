@@ -607,7 +607,6 @@ html {
       width: 100%;
       position: absolute;
       max-height: 0px;
-      z-index: 0;
     }
     .icon::before {
       content: '\f067';
@@ -616,10 +615,6 @@ html {
   }
 
   .active-block {
-    @include large {
-      z-index: 50;
-      pointer-events: none;
-    }
     .tab-content {
       width: 100%;
       max-height: 330px;

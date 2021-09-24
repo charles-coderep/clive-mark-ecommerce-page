@@ -1216,19 +1216,12 @@ html {
     width: 100%;
     position: absolute;
     max-height: 0px;
-    z-index: 0;
   }
 }
 .description-review .description-block .icon::before,
 .description-review .review-block .icon::before {
   content: "\f067";
   color: #018ed3;
-}
-@media only screen and (min-width: 992px) {
-  .description-review .active-block {
-    z-index: 50;
-    pointer-events: none;
-  }
 }
 .description-review .active-block .tab-content {
   width: 100%;
